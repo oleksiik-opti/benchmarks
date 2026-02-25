@@ -1,21 +1,13 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
+using Benchmarks.Common;
 
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
 
 namespace Benchmarks;
 
-public class UserDetails
-{
-    public int Id { get; set; }
-
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public string Email { get; set; }
-}
-
 [MemoryDiagnoser]
-public class Benchmark
+public class JoinVsWhere_Benchmark
 {
     private List<UserDetails> _users;
     private int[] _userIds;
@@ -51,12 +43,9 @@ public class Benchmark
     {
         return _users.Where(f => _userIds.Contains(f.Id)).ToList();
     }
-}
 
-internal class JoinVsWhere
-{
     public static void Main()
     {
-        BenchmarkRunner.Run<Benchmark>();
+        BenchmarkRunner.Run<JoinVsWhere_Benchmark>();
     }
 }

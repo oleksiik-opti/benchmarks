@@ -5,8 +5,8 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        
-        <StartupObject>Benchmarks.JoinVsWhere</StartupObject>
+
+        <StartupObject>Benchmarks.Dictionary_Benchmark</StartupObject>
     </PropertyGroup>
 
     <ItemGroup>
